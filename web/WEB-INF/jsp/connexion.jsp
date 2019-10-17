@@ -3,7 +3,7 @@
     <title>Connexion</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-          href="<%= request.getContextPath()%>/vendor/materialize/css/materialize.css"/>
+          href="${pageContext.request.contextPath}/vendor/materialize/css/materialize.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
@@ -54,7 +54,10 @@
             </div>
         </div>
     </form>
+    <div>
+        <a class="waves-effect waves-light btn" href="">S'inscrire</a>
+    </div>
 </div>
-<script src="<%= request.getContextPath()%>/vendor/materialize/js/materialize.js"></script>
+<script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>
 </body>
 </html>
