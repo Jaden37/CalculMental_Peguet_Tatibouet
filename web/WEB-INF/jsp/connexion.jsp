@@ -40,23 +40,39 @@
                                 <label for="first_name">Login</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="last_name" name="password" type="text" class="validate">
+                                <input id="last_name" name="password" type="password" class="validate">
                                 <label for="last_name">Password</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-action">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button class="btn waves-effect waves-light right" type="submit" name="action">Se connecter
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
             </div>
         </div>
     </form>
-    <div>
-        <a class="waves-effect waves-light btn" href="">S'inscrire</a>
-    </div>
+    <%--<div class="row" >
+        <div class="col s12 m6 offset-m3">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="https://lorempixel.com/100/190/nature/6">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>Vous voulez tenter vôtre chance ?</p>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn waves-effect waves-light right" type="submit" name="action">Inscrivez vous
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--%>
 </div>
 <script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>
 </body>

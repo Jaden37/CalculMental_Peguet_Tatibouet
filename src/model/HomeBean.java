@@ -6,7 +6,6 @@ import dal.UserDAOJDBC;
 
 import java.io.Serializable;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class HomeBean implements Serializable {
