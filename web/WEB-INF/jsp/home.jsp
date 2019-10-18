@@ -24,13 +24,14 @@
                     <td>${status.index + 1}</td>
                     <td>${user.login}</td>
                     <td>${user.bestScore}</td>
-            </tr>
             </c:forEach>
+            </tr>
+
             </tbody>
         </table>
     </div>
     <div>
-        <a href="">Commencer la partie</a>
+        <a href="evaluation">Commencer la partie</a>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>
