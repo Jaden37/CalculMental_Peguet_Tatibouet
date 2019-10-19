@@ -31,7 +31,7 @@
         </table>
     </div>
     <div>
-        <a href="evaluation">Commencer la partie</a>
+        <a href="question">Commencer la partie</a>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>

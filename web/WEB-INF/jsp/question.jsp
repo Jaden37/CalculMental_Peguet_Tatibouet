@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Home</title>
+    <title>Question</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/vendor/materialize/css/materialize.css"/>
@@ -16,12 +16,15 @@
         <p>Voici le calcul à résoudre :</p>
         <p>${expression.chaineCalcul}</p>
 
-        <form method="post" action="evaluation">
+        <form method="post" action="question">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="first_name" name="login" type="text" class="validate">
-                    <label for="first_name">Login</label>
+                    <input id="first_name" name="answer" type="number" step="any" class="validate">
+                    <label for="first_name">Votre réponse</label>
                 </div>
+                <button class="btn waves-effect waves-light right" type="submit" name="action">Valider réponse
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </form>
     </div>

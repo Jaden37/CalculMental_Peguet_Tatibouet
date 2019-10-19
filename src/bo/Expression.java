@@ -60,6 +60,7 @@ public class Expression {
 
     public void randomPush(){
         Double r = random(0.0, 100.0);
+        r = Math.floor(r * 100) / 100;
         pile.push(r);
         System.out.println("Ajout d'un nombre dans la pile : " + r);
         if(first){
@@ -116,9 +117,9 @@ public class Expression {
                 }
             } else if (pile.size() >= 2) {
                 System.out.println("La pile contient " + pile.size() + " élément");
-                if(pile.size() > 2){
+                if(i == length -1 ){
                     randomBinaire();
-                }else if(i == length -1 ){
+                }else if(pile.size() > 2){
                     randomBinaire();
                 }else {
                     int r = random(0,10);
