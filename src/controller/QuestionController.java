@@ -1,5 +1,6 @@
 package controller;
 
+import bo.Expression;
 import bo.Question;
 import model.ConnexionBean;
 import model.HomeBean;
@@ -26,6 +27,10 @@ public class QuestionController extends HttpServlet {
             question.getLibelle();
             question.getResultat();
             request.setAttribute("question", question);
+
+            Expression expression = new Expression();
+            expression.generateExpression(3);
+            request.setAttribute("expression", expression);
             request.getRequestDispatcher(EVALUATION_PAGE_JSP).forward(request, response);
         }
         else {

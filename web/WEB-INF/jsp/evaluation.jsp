@@ -12,6 +12,18 @@
     <div>
         <h2>${question.libelle}</h2>
         <p>${question.resultat}</p>
+        <p>${expression.pile}</p>
+        <p>Voici le calcul à résoudre :</p>
+        <p>${expression.chaineCalcul}</p>
+
+        <form method="post" action="evaluation">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="first_name" name="login" type="text" class="validate">
+                    <label for="first_name">Login</label>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>
