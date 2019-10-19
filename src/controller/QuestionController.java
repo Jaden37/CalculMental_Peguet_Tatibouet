@@ -1,9 +1,7 @@
 package controller;
 
 import bo.Expression;
-import bo.Question;
 import model.ConnexionBean;
-import model.HomeBean;
 import model.QuestionBean;
 
 import javax.servlet.ServletException;
@@ -29,13 +27,6 @@ public class QuestionController extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + RESULT_PAGE_JSP);
             }
             else {
-                Question question = new Question();
-                question.setLibelle("Mon opération");
-                question.setResultat(2.00);
-                question.getLibelle();
-                question.getResultat();
-                request.setAttribute("question", question);
-
                 Expression expression = new Expression();
                 expression.generateExpression(3);
                 request.setAttribute("expression", expression);

@@ -9,11 +9,11 @@
 <body>
 <div class="container">
     <h1 class="center-align">Test terminé</h1>
-    <div>
-        <p>Votre score est de ${nbVictoire} / ${nbQuestion}</p>
+    <div class="card-panel indigo">
+        <p class="white-text text-lighten-5">Votre score est de <b>${nbVictoire} / ${nbQuestion}</b></p>
     </div>
-    <div>
-        <a href="home">Retour à l'accueil</a>
+    <div class="right-align">
+        <a class="waves-effect waves-light btn blue-grey lighten-5 black-text" href="home"><i class="material-icons left">home</i>Retour à l'accueil</a>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>
