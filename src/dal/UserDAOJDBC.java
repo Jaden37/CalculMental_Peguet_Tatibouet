@@ -13,6 +13,7 @@ public class UserDAOJDBC extends DataAccessObjJDBC<User> {
 
     private static final String AUTH_QUERY = "SELECT * FROM user WHERE login = ? AND password = ?";
     private static final String FIND_ALL_USERS = "SELECT * FROM user ORDER BY bestscore DESC LIMIT 10";
+    private static final String UPDATE_USER_QUERY = "UPDATE user SET bestscore = ? where id = ?";
     private static final Logger LOGGER = Logger.getLogger( UserDAOJDBC.class.getName() );
 
     public UserDAOJDBC(String dbUrl, String dbLogin, String dbPwd) {
@@ -22,6 +23,20 @@ public class UserDAOJDBC extends DataAccessObjJDBC<User> {
     @Override
     public void create(User object) {
 
+    }
+
+    @Override
+    public void update(User object) throws SQLException{
+        try (Connection connection = DriverManager.getConnection( dbUrl, dbLogin, dbPwd );
+             PreparedStatement ps = connection.prepareStatement(UPDATE_USER_QUERY) )
+        {
+            ps.setInt(1, object.getBestScore());
+            ps.setInt(2, object.getId());
+            ps.executeUpdate();
+            System.out.println("Modification dans la base réussie");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
