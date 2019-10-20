@@ -33,15 +33,17 @@ public class Expression {
         first = true;
     }
 
+//    retourne un double aléatoire
     public Double random(Double min, Double max) {
         return ThreadLocalRandom.current().nextDouble(min, max);
     }
 
+//    retourne un int aléatoire
     public int random(int min, int max) {
         Random r = new Random();
         return r.nextInt(max - min) + min;
     }
-
+//  séléctionne une opération unaire au hasard
     public void randomUnaire() {
         Double temp = pile.pop();
         if(random(0,10) > 5){
@@ -58,8 +60,10 @@ public class Expression {
         pile.push(temp);
     }
 
+//    ajoute un nombre dans la pile
     public void randomPush(){
         Double r = random(0.0, 100.0);
+//      on arrondi le nombre à 2 chiffres après la virgule
         r = Math.floor(r * 100) / 100;
         pile.push(r);
         System.out.println("Ajout d'un nombre dans la pile : " + r);
@@ -70,9 +74,11 @@ public class Expression {
     }
 
     public void randomBinaire(){
+//        dernier élément inséré de ma pile
         Double temp1 = pile.pop();
+//        premier élément inséré dans ma pile (ou résultat de plusieurs calculs précedent)
         Double temp2 = pile.pop();
-        int r = random(0,3);
+        int r = random(0,4);
         switch (r)
         {
             case 0:
@@ -108,25 +114,26 @@ public class Expression {
 //            si la pile contient un seul élément
             if (pile.size() == 1) {
                 System.out.println("La pile contient 1 élément");
-                //on tire au hasard : rajouter un nombre OU effectuer une opération avec un unaire
-                if (random(0, 10) > 5) {
-                    randomPush();
-                } else {
-                    //on tire au hasard le type d'unaire choisi
+//                si c'est le dernier parcour de la boucle on ne rajoute pas de nombre dans la pile
+                if(i == length -1 ){
                     randomUnaire();
+                }else {
+                    //on tire au hasard : rajouter un nombre OU effectuer une opération avec un unaire
+                    if (random(0, 10) > 5) {
+                        randomPush();
+                    } else {
+                        //on tire au hasard le type d'unaire choisi
+                        randomUnaire();
+                    }
                 }
             } else if (pile.size() >= 2) {
                 System.out.println("La pile contient " + pile.size() + " élément");
+                //  si c'est le dernier parcour de la boucle on ne rajoute pas de nombre dans la pile
                 if(i == length -1 ){
-                    randomBinaire();
-                }else if(pile.size() > 2){
                     randomBinaire();
                 }else {
                     int r = random(0,10);
-                    if (0 <= r && r < 3 ) {
-//                  on met un premier chiffre dans la pile
-                        randomPush();
-                    }else if (3 <= r && r < 6 ){
+                    if (r < 5){
                         //on tire au hasard le type d'unaire choisi
                         randomUnaire();
                     }else {

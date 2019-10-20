@@ -1,5 +1,6 @@
 package dal;
 
+import bo.Resultat;
 import bo.User;
 
 import javax.servlet.ServletContext;
@@ -17,9 +18,17 @@ public class DAOFactory {
     }
 
 
+    //fabrication de l'objet UserDAO
     public static IDAO<User> getUserDAO() {
         IDAO<User> dao;
         dao = new UserDAOJDBC(dbUrl, dbLogin, dbPwd);
+        return dao;
+    }
+
+    //fabrication de l'objet Resultat DAO
+    public static IDAO<Resultat> getResultatDAO(){
+        IDAO<Resultat> dao;
+        dao = new ResultatDAOJDBC(dbUrl, dbLogin, dbPwd);
         return dao;
     }
 }

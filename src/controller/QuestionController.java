@@ -23,12 +23,14 @@ public class QuestionController extends HttpServlet {
         ConnexionBean model = new ConnexionBean();
         if(model.isConnected(request)){
             HttpSession session = request.getSession();
-            if((int) session.getAttribute("nbQuestion") >= 3){
+            //si le nombre de question traité est supérieur à 10 montre la page des résultat
+            if((int) session.getAttribute("nbQuestion") >= 10){
                 response.sendRedirect(request.getContextPath() + RESULT_PAGE_JSP);
             }
+            //sinon on repose un calcul à l'utilisateur
             else {
                 Expression expression = new Expression();
-                expression.generateExpression(3);
+                expression.generateExpression(5);
                 request.setAttribute("expression", expression);
                 session.setAttribute("pile", expression.getPile());
                 request.getRequestDispatcher(EVALUATION_PAGE_JSP).forward(request, response);
@@ -41,6 +43,8 @@ public class QuestionController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //lors de la validation d'une réponse par l'utilisateur
+        //on appelle ensuite la fonction doGet() qui redirigera vers la page correspondante
         System.out.println("Je suis dans le doPost");
         QuestionBean model = new QuestionBean();
         model.checkAnswer(request);

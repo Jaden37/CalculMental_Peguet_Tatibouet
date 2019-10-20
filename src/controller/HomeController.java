@@ -21,10 +21,12 @@ public class HomeController extends HttpServlet {
         ConnexionBean model = new ConnexionBean();
         if(model.isConnected(request)){
             HomeBean homeModel = new HomeBean();
+            //on enregistre les 10 user ayant fait le meilleur score
             homeModel.getUsers();
             request.setAttribute("homeBean", homeModel);
             request.getRequestDispatcher(HOME_PAGE_JSP).forward(request, response);
             HttpSession session = request.getSession();
+            //on set le nombre de question et de bonne réponse à 0 pour le prochain test de l'utilisateur
             session.setAttribute("nbQuestion",0);
             session.setAttribute("nbVictoire",0);
         }

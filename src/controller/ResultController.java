@@ -1,6 +1,5 @@
 package controller;
 
-import bo.Question;
 import bo.User;
 import dal.UserDAOJDBC;
 import model.ConnexionBean;
@@ -23,11 +22,14 @@ public class ResultController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ConnexionBean model = new ConnexionBean();
         HttpSession session = request.getSession();
-        if(model.isConnected(request) && (int) session.getAttribute("nbQuestion") >= 3){
+        if(model.isConnected(request) && (int) session.getAttribute("nbQuestion") >= 10){
             request.setAttribute("nbVictoire", session.getAttribute("nbVictoire"));
             request.setAttribute("nbQuestion", session.getAttribute("nbQuestion"));
             QuestionBean questionBean = new QuestionBean();
+            //on vérifie sur le score que viens de faire l'utilisateur est meilleur que son dernier score
             questionBean.checkBestScore(request);
+            //dans tous les cas on enregistre le score de l'utilisateur
+            questionBean.registerScore(request);
             request.getRequestDispatcher(RESULT_PAGE_JSP).forward(request, response);
         }else {
             response.sendRedirect(request.getContextPath() + CONNEXION_PAGE_JSP);
