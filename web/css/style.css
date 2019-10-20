@@ -1,0 +1,24 @@
+.home {
+    background-image: url("../medias/bg_home.jpg");
+    background-size: cover;
+    z-index: -1;
+    background-repeat: no-repeat;
+}
+
+.connexion-form {
+    margin: 100px auto 50px;
+}
+
+.start_game {
+    padding: 20px;
+}
+
+.scores {
+    background-repeat: no-repeat;
+    background-image: url("../medias/tab_score.jpg");
+    background-size: cover;
+}
+
+.score {
+    margin-bottom: 50px;
+}

@@ -10,20 +10,19 @@
 <div class="container">
     <h1 class="center-align">Questionnaire</h1>
     <div>
-        <h2>${question.libelle}</h2>
-        <p>${question.resultat}</p>
         <p>${expression.pile}</p>
-        <p>Voici le calcul à résoudre :</p>
-        <p>${expression.chaineCalcul}</p>
-
+        <b>Voici le calcul à résoudre :</b>
+        <div class="card-panel blue-grey darken-4">
+            <b class="white-text text-lighten-5">${expression.chaineCalcul}</b>
+        </div>
         <form method="post" action="question">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="first_name" name="answer" type="number" step="any" class="validate">
-                    <label for="first_name">Votre réponse</label>
+                    <input id="response_user" name="answer" type="number" step="any" class="validate" required>
+                    <label for="response_user">Votre réponse</label>
                 </div>
-                <button class="btn waves-effect waves-light right" type="submit" name="action">Valider réponse
-                    <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light green darken-2 right" type="submit" name="action">Valider réponse
+                    <i class="material-icons right">gamepad</i>
                 </button>
             </div>
         </form>

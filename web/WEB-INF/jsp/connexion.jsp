@@ -4,11 +4,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
           href="${pageContext.request.contextPath}/vendor/materialize/css/materialize.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
+<body class="home">
 <div class="container">
-
     <c:if test="${ !empty connexionBean.authentResult}">
         <div class="row" id="alert_box">
             <div class="col s12 m12">
@@ -28,19 +28,19 @@
         </div>
     </c:if>
 
-    <form method="post" action="connexion">
+    <form method="post" action="connexion" >
         <div class="row">
             <div class="col s12 m6 offset-m3">
-                <div class="card white darken-1">
+                <div class="card white darken-1 connexion-form" >
                     <div class="card-content darken-1">
                         <span class="card-title">Connexion</span>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="first_name" name="login" type="text" class="validate" value="${connexionBean.login}">
+                                <input id="first_name" name="login" type="text" class="validate" required value="${connexionBean.login}">
                                 <label for="first_name">Login</label>
                             </div>
                             <div class="input-field col s12">
-                                <input id="last_name" name="password" type="password" class="validate">
+                                <input id="last_name" name="password" type="password" class="validate" required>
                                 <label for="last_name">Password</label>
                             </div>
                         </div>
