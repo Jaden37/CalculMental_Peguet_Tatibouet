@@ -1,6 +1,10 @@
 package controller;
 
+import bo.Question;
+import bo.User;
+import dal.UserDAOJDBC;
 import model.ConnexionBean;
+import model.QuestionBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +26,8 @@ public class ResultController extends HttpServlet {
         if(model.isConnected(request) && (int) session.getAttribute("nbQuestion") >= 3){
             request.setAttribute("nbVictoire", session.getAttribute("nbVictoire"));
             request.setAttribute("nbQuestion", session.getAttribute("nbQuestion"));
+            QuestionBean questionBean = new QuestionBean();
+            questionBean.checkBestScore(request);
             request.getRequestDispatcher(RESULT_PAGE_JSP).forward(request, response);
         }else {
             response.sendRedirect(request.getContextPath() + CONNEXION_PAGE_JSP);

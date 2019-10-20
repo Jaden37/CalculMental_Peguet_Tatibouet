@@ -1,5 +1,10 @@
 package model;
 
+import bo.User;
+import dal.DAOFactory;
+import dal.UserDAOJDBC;
+
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.DataOutput;
@@ -38,5 +43,24 @@ public class QuestionBean implements Serializable {
         }
         session.setAttribute("nbQuestion", (int) session.getAttribute("nbQuestion") + 1);
         System.out.println("Nombre total de question éffectué : " + session.getAttribute("nbQuestion"));
+    }
+
+    public void checkBestScore(HttpServletRequest request){
+        System.out.println("Modification du user");
+        HttpSession session = request.getSession();
+        UserDAOJDBC dao = (UserDAOJDBC) DAOFactory.getUserDAO();
+        User user = (User) session.getAttribute("isConnected");
+        if(user.getBestScore() < (int) session.getAttribute("nbVictoire")){
+            try {
+                QuestionBean questionBean = new QuestionBean();
+                user.setBestScore((Integer) session.getAttribute("nbVictoire"));
+                System.out.println("id user" + user.getId());
+                dao.update(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 }
