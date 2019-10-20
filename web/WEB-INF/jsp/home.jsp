@@ -10,6 +10,7 @@
 <body class="scores">
 <div class="container">
     <div class="row center-align">
+        <!--Tableau affichant les 10 meilleurs scores tous les joueurs confondus -->
         <h1 class="blue-grey-text text-lighten-5">Tableau des scores</h1>
         <table class="responsive-table striped white">
             <thead>
@@ -30,6 +31,7 @@
             </tbody>
         </table>
     </div>
+    <!--redirection vers la page du questitonnaire -->
     <div class="center-align start_game">
         <a class="waves-effect waves-light btn light-blue darken-4" href="question"><i class="material-icons left">videogame_asset</i>Commencer la partie</a>
     </div>

@@ -9,6 +9,7 @@
 </head>
 <body class="home">
 <div class="container">
+    <!--Permet d'afficher un message d'erreur si un problème survient lors de la connexion de l'utilisateur -->
     <c:if test="${ !empty connexionBean.authentResult}">
         <div class="row" id="alert_box">
             <div class="col s12 m12">
@@ -27,7 +28,7 @@
             </div>
         </div>
     </c:if>
-
+    <!--Affichage du formulaire de connexion -->
     <form method="post" action="connexion" >
         <div class="row">
             <div class="col s12 m6 offset-m3">

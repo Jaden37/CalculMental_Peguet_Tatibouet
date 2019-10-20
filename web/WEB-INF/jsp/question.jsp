@@ -10,11 +10,12 @@
 <div class="container">
     <h1 class="center-align">Questionnaire</h1>
     <div>
-        <p>${expression.pile}</p>
+        <!-- Affichage d'une opération générée aléatoirement -->
         <b>Voici le calcul à résoudre :</b>
         <div class="card-panel blue-grey darken-4">
             <b class="white-text text-lighten-5">${expression.chaineCalcul}</b>
         </div>
+        <!-- Affichage du formulaire permettant à l'utilisateur de répondre à la question -->
         <form method="post" action="question">
             <div class="row">
                 <div class="input-field col s12">
@@ -26,6 +27,9 @@
                 </button>
             </div>
         </form>
+        <!-- Affichage du résultat de l'opération pour faciliter le test du programme  -->
+        <p>Ceci n'est pas un oubli, l'affichage du résultat permet de faciliter le test du programme</p>
+        <p><i>Résultat de l'opération : ${expression.pile}</i></p>
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/vendor/materialize/js/materialize.js"></script>
